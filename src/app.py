@@ -14,7 +14,7 @@ from db import db
 app = Flask(__name__) # We also need to tell SQLAlchemy where to find the data.db file
 # what we're saying: the SQLAlchemy database is going to live at the root folder of the project
 # it doesn't *have* to be sqlite either. It can be any (SQL-based I think) database (ex. mySQL, postgreSQL, Oracle)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///database.db')
 # This turns off the flask SQLAlchemy tracker.
 # SQLAlchemy comes with one built in and disabling this frees up redundantly used resources
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
